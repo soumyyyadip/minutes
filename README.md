@@ -20,7 +20,7 @@
 
 | Layer | Technology |
 |---|---|
-| Frontend | Vanilla HTML5, CSS3, JavaScript (ES6+) |
+| Frontend | HTML5, CSS3, JavaScript (ES6+) |
 | Fonts | DM Serif Display + DM Sans (Google Fonts) |
 | Backend | Node.js + Express.js |
 | Database | MongoDB + Mongoose |
