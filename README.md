@@ -1,4 +1,4 @@
-# MeetFlow
+# Minutes
 
 > A clean, lightweight meeting management app — record minutes, track decisions, manage action items and participants. Built with Node.js, Express, MongoDB, and a HTML/CSS/JS frontend.
 
@@ -32,7 +32,7 @@
 ## Project Structure
 
 ```
-MeetFlow-B/
+Minutes/
 ├── backend/
 │   ├── config/         # MongoDB connection
 │   ├── controllers/    # meetingController, authController

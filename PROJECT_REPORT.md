@@ -1,8 +1,8 @@
-# Project Report: MeetFlow
+# Project Report: Minutes
 
 ## 1. Introduction
 
-MeetFlow is a full-stack, web-based meeting management application developed as a college project. It enables users to create meeting records, document minutes and decisions, track action items, and manage participants — all within a clean, modern interface. The application emphasises data privacy, usability, and a professional design aesthetic inspired by productivity tools.
+Minutes is a full-stack, web-based meeting management application developed as a college project. It enables users to create meeting records, document minutes and decisions, track action items, and manage participants — all within a clean, modern interface. The application emphasises data privacy, usability, and a professional design aesthetic inspired by productivity tools.
 
 ---
 
@@ -30,7 +30,7 @@ MeetFlow is a full-stack, web-based meeting management application developed as 
 
 ## 4. System Architecture
 
-MeetFlow uses a standard Client-Server architecture:
+Minutes uses a standard Client-Server architecture:
 
 - **Frontend**: A single HTML file with vanilla JS handles all UI rendering, state management, and API communication via `fetch`. No frontend framework or build tool is required.
 - **Backend**: An Express.js REST API with MVC separation — controllers handle business logic, models define the schema, and middleware enforces authentication.
@@ -119,4 +119,4 @@ createdBy    ObjectId    → User
 
 ## 9. Conclusion
 
-MeetFlow demonstrates a complete, production-structured web application built without heavy frontend frameworks. By embedding action items within meeting documents, applying JWT-based security, and implementing intelligent status management, the project goes beyond a basic CRUD app. The Master-Detail UI with inline editing, participant chip input, and auto-status correction reflect real-world application design patterns.
+Minutes demonstrates a complete, production-structured web application built without heavy frontend frameworks. By embedding action items within meeting documents, applying JWT-based security, and implementing intelligent status management, the project goes beyond a basic CRUD app. The Master-Detail UI with inline editing, participant chip input, and auto-status correction reflect real-world application design patterns.

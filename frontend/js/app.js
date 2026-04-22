@@ -1,5 +1,5 @@
 /* ============================================================
-   MeetFlow — Master-Detail App Logic
+   Minutes — Master-Detail App Logic
    Mirrors the MeetingDashboard.jsx React component behavior
    ============================================================ */
 

@@ -1,8 +1,8 @@
-# MeetFlow — Technical Documentation
+# Minutes — Technical Documentation
 
 ## Overview
 
-MeetFlow is a full-stack web application for managing meetings, recording minutes, tracking decisions, and managing action items. It uses a Node.js/Express backend with MongoDB, and a vanilla HTML/CSS/JS frontend styled with DM Serif Display and DM Sans fonts.
+Minutes is a full-stack web application for managing meetings, recording minutes, tracking decisions, and managing action items. It uses a Node.js/Express backend with MongoDB, and a vanilla HTML/CSS/JS frontend styled with DM Serif Display and DM Sans fonts.
 
 ---
 
