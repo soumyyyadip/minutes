@@ -1,6 +1,6 @@
 # MeetFlow
 
-> A clean, lightweight meeting management app — record minutes, track decisions, manage action items and participants. Built with Node.js, Express, MongoDB, and a vanilla HTML/CSS/JS frontend.
+> A clean, lightweight meeting management app — record minutes, track decisions, manage action items and participants. Built with Node.js, Express, MongoDB, and a HTML/CSS/JS frontend.
 
 ## Features
 
