@@ -1072,6 +1072,37 @@ body {
 
 .nm-actions .btn-primary { flex: 1; }
 
+/* ─── Primary action button (theme-aligned) ──────────────── */
+.btn-primary {
+  padding: 12px 20px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  box-shadow: 0 4px 16px rgba(45,106,79,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(45,106,79,0.30);
+}
+
+.btn-primary:active {
+  transform: none;
+  box-shadow: 0 3px 10px rgba(45,106,79,0.18);
+}
+
 .btn-cancel-nm {
   padding: 11px 18px;
   background: none;
@@ -1081,6 +1112,49 @@ body {
   cursor: pointer;
   font-size: 13px;
   font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-cancel-nm:hover {
+  border-color: #CED4DA;
+  color: #495057;
+}
+
+/* ─── Notes tab in detail panel ──────────────────────────── */
+.notes-preview {
+  font-size: 15px;
+  color: #1a1a1a;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.notes-preview.empty {
+  color: #ADB5BD;
+  font-style: italic;
+}
+
+.notes-edit-area {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #E9ECEF;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  color: #1a1a1a;
+  background: #FAFAFA;
+  outline: none;
+  min-height: 180px;
+  resize: vertical;
+  line-height: 1.7;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: none;
+}
+
+.notes-edit-area:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.07);
+  background: #fff;
 }
 
 /* ─── Animations ─────────────────────────────────────────── */

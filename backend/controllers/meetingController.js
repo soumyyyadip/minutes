@@ -77,13 +77,14 @@ exports.getMeetingById = async (req, res) => {
 // POST /api/meetings
 exports.createMeeting = async (req, res) => {
   try {
-    const { title, date, time, status, participants, minutes, decisions, actionItems } = req.body;
+    const { title, date, time, status, participants, minutes, notes, decisions, actionItems } = req.body;
     const meeting = new Meeting({
       title, date,
       time: time || '10:00 AM',
       status: status || 'upcoming',
       participants: participants || [],
       minutes: minutes || '',
+      notes: notes || '',
       decisions: decisions || [],
       actionItems: actionItems || [],
       createdBy: req.user.id

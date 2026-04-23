@@ -58,6 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnSaveMinutes     = document.getElementById('btn-save-minutes');
   const btnCancelMinutes   = document.getElementById('btn-cancel-minutes');
 
+  // Notes
+  const notesDisplay     = document.getElementById('notes-display');
+  const notesEditor      = document.getElementById('notes-editor');
+  const btnEditNotes     = document.getElementById('btn-edit-notes');
+  const notesActions     = document.getElementById('notes-actions');
+  const notesSaveActions = document.getElementById('notes-save-actions');
+  const btnSaveNotes     = document.getElementById('btn-save-notes');
+  const btnCancelNotes   = document.getElementById('btn-cancel-notes');
+
   // Decisions
   const decisionsList   = document.getElementById('decisions-list');
   const newDecisionInput = document.getElementById('new-decision-input');
@@ -346,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderMinutesTab(m);
+    renderNotesTab(m);
     renderDecisionsTab(m);
     renderTasksTab(m);
     renderParticipantsTab(m);
@@ -391,6 +401,43 @@ document.addEventListener('DOMContentLoaded', () => {
       setMinutesEditing(false);
     } catch (err) {
       alert('Failed to save minutes: ' + err.message);
+    }
+  });
+
+  // ─── Notes Tab ────────────────────────────────────────────
+  let editingNotes = false;
+
+  function renderNotesTab(m) {
+    const hasNotes = m.notes && m.notes.trim();
+    notesDisplay.textContent = hasNotes ? m.notes : 'No notes added yet. Click Edit to add context or follow-ups.';
+    notesDisplay.className = 'notes-preview' + (hasNotes ? '' : ' empty');
+    notesEditor.value = m.notes || '';
+    setNotesEditing(false);
+  }
+
+  function setNotesEditing(on) {
+    editingNotes = on;
+    notesDisplay.style.display = on ? 'none' : 'block';
+    notesEditor.style.display = on ? 'block' : 'none';
+    notesActions.style.display = on ? 'none' : 'block';
+    notesSaveActions.style.display = on ? 'flex' : 'none';
+  }
+
+  btnEditNotes.addEventListener('click', () => setNotesEditing(true));
+  btnCancelNotes.addEventListener('click', () => {
+    notesEditor.value = selectedMeeting ? (selectedMeeting.notes || '') : '';
+    setNotesEditing(false);
+  });
+
+  btnSaveNotes.addEventListener('click', async () => {
+    if (!selectedMeeting) return;
+    try {
+      const updated = await window.api.updateMeeting(selectedMeeting._id, { notes: notesEditor.value });
+      patchLocal(updated);
+      renderNotesTab(selectedMeeting);
+      setNotesEditing(false);
+    } catch (err) {
+      alert('Failed to save notes: ' + err.message);
     }
   });
 
