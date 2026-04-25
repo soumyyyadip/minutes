@@ -111,7 +111,10 @@
             </div>
           </div>
           <p class="auth-error" id="auth-error"></p>
-          <button type="submit" id="auth-submit-btn" class="auth-submit-btn">Sign in</button>
+          <button type="submit" id="auth-submit-btn" class="auth-submit-btn">
+            <span id="auth-btn-text">Sign in</span>
+            <span id="auth-btn-spinner" class="auth-btn-spinner" aria-hidden="true"></span>
+          </button>
         </form>
 
         <p class="auth-switch">
@@ -349,6 +352,22 @@
     </main>
 
   </div><!-- /#app-shell -->
+
+  <!-- ═══════════════════════════════════════
+       LOADING OVERLAY
+  ════════════════════════════════════════════ -->
+  <div id="auth-loading-overlay" aria-live="polite" aria-label="Signing in…">
+    <div class="alo-card">
+      <div class="alo-rings">
+        <div class="alo-ring alo-ring-1"></div>
+        <div class="alo-ring alo-ring-2"></div>
+        <div class="alo-ring alo-ring-3"></div>
+        <div class="alo-logo">M—</div>
+      </div>
+      <p class="alo-label" id="alo-label">Signing in…</p>
+      <p class="alo-sub">Hang tight, loading your workspace.</p>
+    </div>
+  </div>
 
   <script src="./js/api.js"></script>
   <script src="./js/app.js"></script>

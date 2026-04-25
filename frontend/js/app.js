@@ -169,16 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setAuthMode(mode) {
     authMode = mode;
+    const btnText = document.getElementById('auth-btn-text');
     if (mode === 'login') {
       if (authCardTitle) authCardTitle.textContent = 'Welcome back';
       if (authCardSub)   authCardSub.textContent   = 'Sign in to your account to continue.';
-      authSubmitBtn.textContent = 'Sign in';
+      if (btnText) btnText.textContent = 'Sign in';
       authToggleMsg.textContent = "Don't have an account?";
       authToggleLink.textContent = 'Create one free';
     } else {
       if (authCardTitle) authCardTitle.textContent = 'Create your account';
       if (authCardSub)   authCardSub.textContent   = 'Start capturing meetings for free — no credit card needed.';
-      authSubmitBtn.textContent = 'Get started free';
+      if (btnText) btnText.textContent = 'Get started free';
       authToggleMsg.textContent = 'Already have an account?';
       authToggleLink.textContent = 'Sign in';
     }
@@ -199,11 +200,31 @@ document.addEventListener('DOMContentLoaded', () => {
     setAuthMode(authMode === 'login' ? 'signup' : 'login');
   });
 
+  // ─── Loading overlay helpers ─────────────────────────────
+  const authLoadingOverlay = document.getElementById('auth-loading-overlay');
+  const aloLabel           = document.getElementById('alo-label');
+  const authBtnText        = document.getElementById('auth-btn-text');
+
+  function showAuthLoading(mode) {
+    aloLabel.textContent = mode === 'login' ? 'Signing in…' : 'Creating your account…';
+    authLoadingOverlay.setAttribute('aria-label', aloLabel.textContent);
+    authLoadingOverlay.classList.add('visible');
+    authSubmitBtn.disabled = true;
+    authSubmitBtn.classList.add('loading');
+  }
+
+  function hideAuthLoading() {
+    authLoadingOverlay.classList.remove('visible');
+    authSubmitBtn.disabled = false;
+    authSubmitBtn.classList.remove('loading');
+  }
+
   authForm.addEventListener('submit', async e => {
     e.preventDefault();
     authError.textContent = '';
     const u = document.getElementById('auth-username').value.trim();
     const p = document.getElementById('auth-password').value.trim();
+    showAuthLoading(authMode);
     try {
       const res = authMode === 'login'
         ? await window.api.login(u, p)
@@ -211,8 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('token', res.token);
       localStorage.setItem('username', res.username);
       authForm.reset();
+      hideAuthLoading();
       checkAuth();
     } catch (err) {
+      hideAuthLoading();
       authError.textContent = err.message;
     }
   });
