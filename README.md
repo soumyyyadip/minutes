@@ -1,5 +1,7 @@
 # Minutes
 
+**Live Demo:** [https://minutes-free.netlify.app/](https://minutes-free.netlify.app/)
+
 > A clean, lightweight meeting management app — record minutes, track decisions, manage action items and participants. Built with Node.js, Express, MongoDB, and a HTML/CSS/JS frontend.
 
 ## Features
@@ -49,8 +51,8 @@ Minutes/
 │   │   ├── app.js      # Main UI logic
 │   │   ├── api.js      # API client (fetch wrapper)
 │   │   └── landing.js  # Landing page animations
-│   ├── index.html      # Main App (Auth + Dashboard)
-│   └── landing.html    # Landing Page Entry
+│   ├── app.html        # Main App (Auth + Dashboard)
+│   └── index.html      # Landing Page Entry
 └── README.md
 ```
 
@@ -112,7 +114,7 @@ MongoDB Connected
 The frontend is pure HTML/JS — no build step needed.
 
 **Option A — VS Code Live Server** *(recommended)*
-Right-click `frontend/landing.html` → *Open with Live Server*
+Right-click `frontend/index.html` → *Open with Live Server*
 
 **Option B — Python**
 ```bash
@@ -122,7 +124,7 @@ python3 -m http.server 8000
 ```
 
 **Option C — Direct file open**
-Double-click `frontend/landing.html`. Note: direct `file://` access may have CORS restrictions with the backend.
+Double-click `frontend/index.html`. Note: direct `file://` access may have CORS restrictions with the backend.
 
 ---
 
@@ -151,7 +153,7 @@ All meeting routes require `Authorization: Bearer <token>` header.
 
 ## Usage
 
-1. Open the landing page (`landing.html`) in your browser to explore features, then click **Log in** or **Get started free**
+1. Open the landing page (`index.html`) in your browser to explore features, then click **Log in** or **Get started free**
 2. Click **+ New Meeting** to create a record — set title, date, time (clock picker), facilitator, participants, duration, notes, and decisions
 3. Select a meeting from the sidebar to open the **detail panel**
 4. Use the **Minutes / Decisions / Tasks / Participants** tabs to manage content inline
